@@ -1,0 +1,148 @@
+/**
+ * ==========================================================================
+ * 자기소개 & 어드민 인라인 편집기 컴포넌트 (Editable Bio & Admin Mode)
+ * PIN 인증 후 실시간 수정 가능한 자기소개 섹션 및 플로팅 액션 툴바
+ * ==========================================================================
+ */
+
+.bio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+/* 1. 어드민 편집 활성 모드 (에메랄드 펄스 네온 보더) */
+.bio-card.editing {
+  border-color: var(--primary);
+  box-shadow: 
+    0 0 0 2px var(--primary),
+    0 0 25px rgba(16, 185, 129, 0.4),
+    var(--shadow-card);
+  background: #111723;
+  animation: pulseGlow 2.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 2px var(--primary), 0 0 15px rgba(16, 185, 129, 0.25); }
+  100% { box-shadow: 0 0 0 2px var(--primary), 0 0 28px rgba(16, 185, 129, 0.5); }
+}
+
+/* 2. 편집 툴바 (플로팅 상단 바) */
+.admin-toolbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: #0b0f17;
+  border: 1px solid var(--border-emerald);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.bio-card.editing .admin-toolbar {
+  display: flex;
+}
+
+.admin-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* 3. 자기소개 텍스트 렌더링 및 에디터 영역 */
+.bio-headline {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  outline: none;
+  transition: background var(--transition-fast);
+}
+
+.bio-role {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  display: inline-block;
+  outline: none;
+}
+
+.bio-content {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  word-break: keep-all;
+  outline: none;
+  transition: background var(--transition-fast);
+}
+
+/* 편집 중 포커스 시 배경 하이라이트 */
+.bio-card.editing [contenteditable="true"] {
+  cursor: text;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(16, 185, 129, 0.4);
+  margin: -1px -6px;
+}
+
+.bio-card.editing [contenteditable="true"]:focus {
+  background: rgba(16, 185, 129, 0.08);
+  border-style: solid;
+}
+
+/* 4. 소셜 및 프로필 메타 링크 */
+.bio-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.bio-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.bio-link-item:hover {
+  color: var(--primary-hover);
+}
+
+/* 푸터 우측 관리자 자물쇠 버튼 */
+.admin-trigger-btn {
+  opacity: 0.35;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-trigger-btn:hover {
+  opacity: 1;
+  color: var(--primary);
+  transform: scale(1.1);
+}

@@ -1,0 +1,20 @@
+{
+  "name": "tech-portfolio",
+  "version": "1.0.0",
+  "description": "백엔드 · 데이터 · AI 엔지니어 특화 개인 포트폴리오 웹사이트",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 4000",
+    "start": "python -m http.server 4000"
+  },
+  "keywords": [
+    "portfolio",
+    "backend-engineer",
+    "data-pipeline",
+    "ai-engineer",
+    "personal-brand"
+  ],
+  "author": "",
+  "license": "MIT"
+}

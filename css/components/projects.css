@@ -1,0 +1,160 @@
+/**
+ * ==========================================================================
+ * 프로젝트 아키텍처 카드 컴포넌트 (Project Case Study Cards)
+ * 시스템 구조도(Architecture Flowchart), 정량 지표, 기술 태그 및 액션 링크
+ * ==========================================================================
+ */
+
+/* 프로젝트 반응형 3열 그리드 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 개별 프로젝트 카드 본체 (14px 모던 라운디드) */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(16, 185, 129, 0.4);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+/* 1. 시스템 아키텍처 다이어그램 프리뷰 영역 */
+.arch-preview {
+  height: 200px;
+  background-color: #0b0f17;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-md);
+  overflow: hidden;
+}
+
+/* SVG 다이어그램 스타일 */
+.arch-diagram-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 320px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+  transition: transform var(--transition-normal);
+}
+
+.project-card:hover .arch-diagram-svg {
+  transform: scale(1.04);
+}
+
+/* 확대 보기 오버레이 힌트 */
+.arch-zoom-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(15, 20, 28, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.arch-preview:hover .arch-zoom-btn {
+  opacity: 1;
+}
+
+.arch-zoom-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* 2. 프로젝트 카드 본문 내용 */
+.project-content {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* 정량 지표 뱃지 그룹 */
+.project-metrics {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* 프로젝트 타이틀 */
+.project-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+  line-height: 1.4;
+}
+
+/* 프로젝트 간략 요약 */
+.project-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: var(--space-md);
+  word-break: keep-all;
+  flex: 1;
+}
+
+/* 기술 스택 태그 묶음 */
+.project-tags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+/* 3. 카드 하단 액션 버튼 그룹 */
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-md);
+  margin-top: auto;
+}
+
+.project-actions .btn {
+  flex: 1;
+}

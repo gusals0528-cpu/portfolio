@@ -1,0 +1,24 @@
+/**
+ * ==========================================================================
+ * 테크 포트폴리오 메인 통합 스타일시트 (Main Entry Stylesheet)
+ * 각 모듈별 컴포넌트 CSS를 순서에 맞게 @import 하여 통합 관리
+ * ==========================================================================
+ */
+
+/* 1. 디자인 시스템 토큰 및 기본 리셋 */
+@import "./variables.css";
+@import "./base.css";
+
+/* 2. 공통 UI 프리미티브 컴포넌트 */
+@import "./components/buttons.css";
+@import "./components/badges.css";
+
+/* 3. 섹션 및 특화 컴포넌트 */
+@import "./components/header.css";
+@import "./components/terminal.css";
+@import "./components/bio.css";
+@import "./components/projects.css";
+
+/* 4. 오버레이 및 피드백 컴포넌트 */
+@import "./components/modal.css";
+@import "./components/toast.css";

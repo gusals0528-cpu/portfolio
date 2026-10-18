@@ -1,0 +1,172 @@
+/**
+ * ==========================================================================
+ * 터미널 윈도우 컴포넌트 (Terminal Window Component)
+ * macOS 스타일 3색 닷(🔴🟡🟢), 에메랄드 발광 효과 및 고정폭 콘솔 텍스트
+ * ==========================================================================
+ */
+
+.terminal-window {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+/* 터미널 주변을 감싸는 에메랄드 네온 오라 효과 */
+.terminal-window.glow {
+  box-shadow: 
+    0 15px 35px -10px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(16, 185, 129, 0.22),
+    inset 0 0 1px 1px rgba(255, 255, 255, 0.08);
+  border-color: var(--border-emerald);
+}
+
+.terminal-window:hover {
+  transform: translateY(-2px);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 
+    0 20px 45px -10px rgba(0, 0, 0, 0.9),
+    0 0 36px rgba(16, 185, 129, 0.32);
+}
+
+/* 1. 터미널 윈도우 상단 바 (Header Bar) */
+.terminal-header {
+  height: 38px;
+  background: #101520;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  user-select: none;
+}
+
+/* 3색 신호등 닷 (macOS 스타일 윈도우 컨트롤러) */
+.terminal-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
+}
+
+.dot:hover {
+  opacity: 1;
+}
+
+.dot-red {
+  background-color: var(--accent-red);
+  box-shadow: 0 0 6px rgba(244, 63, 94, 0.4);
+}
+
+.dot-yellow {
+  background-color: var(--accent-amber);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.4);
+}
+
+.dot-green {
+  background-color: var(--primary);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+}
+
+/* 터미널 타이틀 텍스트 */
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; /* 12px */
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terminal-title .badge {
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+/* 2. 터미널 본문 콘솔 텍스트 영역 */
+.terminal-body {
+  padding: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.65;
+  color: var(--text-code);
+  overflow-x: auto;
+  min-height: 180px;
+}
+
+/* 터미널 프롬프트 라인 */
+.terminal-line {
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.prompt-symbol {
+  color: var(--primary);
+  font-weight: 700;
+  user-select: none;
+}
+
+.prompt-path {
+  color: var(--accent-cyan);
+}
+
+.prompt-cmd {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* JSON 하이라이팅 및 출력 데이터 */
+.terminal-output {
+  color: var(--text-secondary);
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.json-key {
+  color: #93c5fd; /* Light Blue */
+}
+
+.json-string {
+  color: var(--text-code); /* Light Emerald */
+}
+
+.json-number {
+  color: var(--accent-amber);
+}
+
+.json-bracket {
+  color: #e2e8f0;
+}
+
+/* 깜빡이는 터미널 커서 */
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: var(--primary);
+  vertical-align: middle;
+  margin-left: 4px;
+  animation: blinkTerminalCursor 1s step-end infinite;
+}
+
+@keyframes blinkTerminalCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

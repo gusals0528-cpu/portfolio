@@ -1,0 +1,160 @@
+/**
+ * ==========================================================================
+ * 버튼 컴포넌트 시스템 (Button Primitives)
+ * 크기 규격(Small, Medium, Large) 및 변형(Primary, Secondary, Ghost, Icon)
+ * ==========================================================================
+ */
+
+/* 기본 버튼 공통 규격 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+ * 1. 버튼 크기 규격 (Button Sizes)
+ * -------------------------------------------------------------------------- */
+
+/* 스몰 버튼 (32px): 카드 내부 링크, 태그 액션 */
+.btn-sm {
+  height: 32px;
+  padding: 0 var(--space-md);
+  font-size: 0.8125rem; /* 13px */
+  border-radius: var(--radius-sm);
+}
+
+.btn-sm svg, .btn-sm .icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* 미디엄 버튼 (40px): 표준 액션, 모달 확인/취소 */
+.btn-md {
+  height: 40px;
+  padding: 0 var(--space-lg);
+  font-size: 0.875rem; /* 14px */
+}
+
+.btn-md svg, .btn-md .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 라지 버튼 (48px): 히어로 섹션 메인 CTA, 이력서 다운로드 */
+.btn-lg {
+  height: 48px;
+  padding: 0 var(--space-xl);
+  font-size: 1rem; /* 16px */
+  border-radius: var(--radius-md);
+}
+
+.btn-lg svg, .btn-lg .icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* 아이콘 전용 원형/정사각 버튼 */
+.btn-icon {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-icon:hover {
+  color: var(--primary);
+  border-color: var(--border-emerald);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+ * 2. 버튼 스타일 변형 (Button Variants)
+ * -------------------------------------------------------------------------- */
+
+/* 1) 프라이머리 버튼 (터미널 에메랄드 메인 CTA) */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #05080e; /* 높은 가독성을 위한 다크 텍스트 */
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.28);
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* 2) 세컨더리 버튼 (다크 글래스 & 아웃라인) */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--primary-hover);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* 3) 고스트 버튼 (배경 없는 투명 텍스트 버튼) */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  color: var(--primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* 4) 데인저/삭제 버튼 (레드 경고) */
+.btn-danger {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fda4af;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.btn-danger:hover {
+  background: rgba(244, 63, 94, 0.2);
+  border-color: var(--accent-red);
+  color: #fff;
+}
