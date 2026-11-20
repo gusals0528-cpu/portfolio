@@ -70,6 +70,11 @@
       "url": "./content-images/automatic-target-kit/2_%EB%B3%80%EA%B2%BD%20%EB%AA%A8%EB%8D%B8%EB%A7%81.png",
       "caption": "2_변경 모델링",
       "kind": "image"
+    },
+    {
+      "url": "./content-images/automatic-target-kit/3_%EC%9E%91%EB%8F%99%20%EC%98%81%EC%83%81.mp4",
+      "caption": "3_작동 영상",
+      "kind": "video"
     }
   ],
   "science-museum-space": [
