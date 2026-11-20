@@ -1,0 +1,32 @@
+:root {
+  --brand: #ff7f00; --brand-hover: #f57400; --brand-pressed: #e86d00;
+  --brand-soft: #fff3e6; --brand-text: #a94700;
+  --surface: #fff; --surface-muted: #f7f6f3; --text: #202020; --text-muted: #595959;
+  --border: #e6e2dd; --control-border: #858585; --success: #246b45; --error: #b42318;
+  --radius-control: 8px; --radius-card: 12px; --radius-panel: 16px;
+  --content-max: 1200px; --shadow-panel: 0 12px 40px rgb(32 32 32 / 12%);
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--text); background: var(--surface); font: 16px/1.6 Pretendard, 'Noto Sans KR', 'Malgun Gothic', sans-serif; word-break: keep-all; overflow-wrap: anywhere; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button, a, select { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+a { color: var(--brand-text); }
+svg { flex-shrink: 0; vertical-align: middle; }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 30px; line-height: 1.3; letter-spacing: -.045em; }
+h2 { font-size: 22px; line-height: 1.4; letter-spacing: -.035em; }
+h3 { font-size: 18px; line-height: 1.4; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.container { width: min(calc(100% - 80px), var(--content-max)); margin-inline: auto; }
+.muted { color: var(--text-muted); }
+.meta { color: var(--text-muted); font-size: 14px; }
+.eyebrow { color: var(--brand-text); font-size: 12px; font-weight: 700; letter-spacing: .12em; margin-bottom: 8px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 100; padding: 12px; background: white; }
+.skip-link:focus { top: 8px; }
+@media (max-width: 1023px) { .container { width: calc(100% - 48px); } }
+@media (max-width: 767px) { .container { width: calc(100% - 32px); } h1 { font-size: 26px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
