@@ -7,8 +7,8 @@ import { el } from './lib/dom.js';
 import { Button, Badge, Field, Tabs, BookmarkNav, PageHeader, SkillCard, ProjectCard, Pagination, SelectFilter, EmptyState, Notice, DetailPanel, ExperienceTable, ContactCard } from './components/index.js';
 import { IntroHero } from './components/IntroHero.js';
 import { Disclosure } from './components/Disclosure.js';
-import { history as historyData } from './data/history.js';
-import { skills, projects, experience, publicContactEmail } from './data/preview.js';
+import { history as historyData } from './data/history.js?v=6cffa3b';
+import { skills, projects, experience, publicContactEmail } from './data/preview.js?v=120c217';
 
 const app = document.querySelector('#app');
 const labels = { home: '홈', services: '의뢰 가능한 작업', projects: '작업 사례', experience: '경력·이력' };
