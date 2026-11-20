@@ -58,8 +58,8 @@ experience.splice(experience.findIndex(row => row.institution === '하남시청�
 });
 experience.find(row => row.institution === '한국로봇융합연구원').classes = [['2026.10', '동원동우고등학교', '협동로봇과 함께 떠나는 스마트 기술 탐험']];
 experience.find(row => row.institution === '상지대학교 산학협력단').classes = [
-  ['2023.12.18 ~ 2023.12.20', '북원여자고등학교', '디지털새싹캠프_메이커캠프_RC카'],
-  ['2023.12.22', '동해광희중학교', '디지털새싹캠프_메이커캠프_드론'],
+  ['2023.12', '북원여자고등학교', '디지털새싹캠프_메이커캠프_RC카'],
+  ['2023.12', '동해광희중학교', '디지털새싹캠프_메이커캠프_드론'],
 ];
 experience.forEach(row => { row.status = row.period.includes('현재') ? '진행 중' : ''; });
 experience[0].schedule = '2026.12 종료 예정';
